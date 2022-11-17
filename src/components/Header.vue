@@ -1,10 +1,13 @@
 <template>
     <header>
         <h1>{{ title }}</h1>
+        <AddButton text='Add task' color="green"/>
     </header>
 </template>
 
 <script>
+import AddButton from '@/components/Button.vue';
+
 export default {
     name: 'TaskHeader',
     props: {
@@ -13,6 +16,9 @@ export default {
             required: true,
     
         },
+    },
+    components: {
+        AddButton,
     },
 };
 </script>
