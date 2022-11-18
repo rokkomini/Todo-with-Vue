@@ -2,7 +2,7 @@
   <div class="todo">
 
     <TaskHeader title="Task tracker" />
-    <TaskList @delete-task="deleteTask" :tasks="tasks" />
+    <TaskList @toggle-reminder="toggleReminder" @delete-task="deleteTask" :tasks="tasks" />
   </div>
 </template>
 
@@ -23,7 +23,12 @@ export default {
   },
   methods: {
     deleteTask(id) {
-      console.log('delete task', id)
+      if(confirm('Are you sure you want to delete task?')) {
+        this.tasks = this.tasks.filter(task => task.id !== id)
+      }
+    },
+    toggleReminder(id) {
+      console.log('toggle reminder', id)
     }
   },
 created() {

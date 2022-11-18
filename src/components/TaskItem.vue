@@ -1,8 +1,8 @@
 
 <template>
-    <div :class="[task.reminder ? 'reminder' : '', 'taskItem']">
+    <div @dblclick="$emit('toggle-reminder', task.id)" :class="[task.reminder ? 'reminder' : '', 'taskItem']">
         <h3>{{ task.text }}
-            <font-awesome-icon @click="onDelete(task.id)" icon="xmark" />
+            <font-awesome-icon @click="$emit('delete-task', task.id)" icon="xmark" />
         </h3>
         <p>{{ task.day }}</p>
     </div>
@@ -17,11 +17,6 @@ export default {
             type: Object,
         },
     },
-    methods: {
-        onDelete(id) {
-          this.$emit('delete-task', id)
-        }
-    }
 }
 </script>
 
