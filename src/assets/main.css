@@ -17,7 +17,7 @@ a,
 .baseButton{
   border: none;
   border-radius: 5px;
-  color: grey;
+ background-color: rgb(99, 95, 95);
   padding: 10px 15px;
   color: white;
   font-size: 15px;
