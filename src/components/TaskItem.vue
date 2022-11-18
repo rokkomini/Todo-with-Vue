@@ -1,13 +1,15 @@
+
 <template>
     <div :class="[task.reminder ? 'reminder' : '', 'taskItem']">
         <h3>{{ task.text }}
-            <i class="fa-regular fa-xmark"></i>
+            <font-awesome-icon @click="onDelete(task.id)" icon="xmark" />
         </h3>
         <p>{{ task.day }}</p>
     </div>
 </template>
 
 <script>
+
 export default {
     name: 'TaskItem',
     props: {
@@ -15,12 +17,21 @@ export default {
             type: Object,
         },
     },
+    methods: {
+        onDelete(id) {
+          this.$emit('delete-task', id)
+        }
+    }
 }
 </script>
 
 <style>
-.fas {
+svg {
     color: red;
+}
+
+.svg-inline--fa {
+    height: 20px;
 }
 
 .taskItem {
