@@ -2,6 +2,7 @@
   <div class="todo">
 
     <TaskHeader title="Task tracker" />
+    <AddTask />
     <TaskList @toggle-reminder="toggleReminder" @delete-task="deleteTask" :tasks="tasks" />
   </div>
 </template>
@@ -9,12 +10,14 @@
 <script>
 import TaskHeader from '@/components/Header.vue';
 import TaskList from '../components/TaskList.vue';
+import AddTask from '../components/AddTask.vue';
 
 export default {
   name: 'Todo-app',
   components: {
     TaskHeader,
-    TaskList
+    TaskList,
+    AddTask,
   },
   data() {
     return {
