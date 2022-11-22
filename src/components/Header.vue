@@ -1,14 +1,14 @@
 <template>
     <header>
         <h1>{{ title }}</h1>
-        <AddButton @btn-click="$emit('toggle-add-task')" 
+        <FirstButton @btn-click="$emit('toggle-add-task')" 
         :text="showAddTask ? 'Close' : 'Add task'"
         :color="showAddTask? 'red' : 'green'" />
     </header>
 </template>
 
 <script>
-import AddButton from '@/components/Button.vue';
+import FirstButton from '@/components/Button.vue';
 
 export default {
     name: 'TaskHeader',
@@ -20,7 +20,7 @@ export default {
         showAddTask: Boolean
     },
     components: {
-        AddButton,
+        FirstButton,
     },
 };
 </script>

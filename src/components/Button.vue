@@ -4,7 +4,7 @@
 
 <script>
 export default {
-    name: 'AddButton',
+    name: 'FirstButton',
     props: {
         text: String,
         color: String,

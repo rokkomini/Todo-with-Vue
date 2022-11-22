@@ -2,14 +2,11 @@
 <template>
     <div @dblclick="$emit('toggle-reminder', task.id)" :class="[task.reminder ? 'reminder' : '', 'taskItem']">
         <h3>{{ task.text }}
-
             <font-awesome-icon @click="$emit('delete-task', task.id)" icon="xmark" color="red" />
-
-
         </h3>
         <div class="status">
             <p>{{ task.day }}</p>
-            <font-awesome-icon @click="onClick()" icon="check" color="green" />
+            <font-awesome-icon @click="$emit('finish-task', task.id)" icon="check" color="green" />
         </div>
     </div>
 </template>
@@ -23,11 +20,6 @@ export default {
             type: Object,
         },
     },
-    methods: {
-        onClick() {
-            console.log('clicked check')
-        }
-    }
 }
 </script>
 

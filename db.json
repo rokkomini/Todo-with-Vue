@@ -32,7 +32,7 @@
       "text": "test",
       "day": "today 9pm",
       "reminder": false,
-      "finished": false,
+      "finished": true,
       "id": 1067
     }
   ]
