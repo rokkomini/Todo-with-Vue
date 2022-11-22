@@ -1,9 +1,9 @@
 <template>
   <div class="todo">
 
-    <TaskHeader @toggle-add-task="toggleAddTask" title="Task tracker" :showAddTask="showAddTask"/>
+    <TaskHeader @toggle-add-task="toggleAddTask" title="Task tracker" :showAddTask="showAddTask" />
     <div v-if="showAddTask">
-      <AddTask @add-task='addTask'/>
+      <AddTask @add-task='addTask' />
     </div>
     <TaskList @toggle-reminder="toggleReminder" @delete-task="deleteTask" :tasks="tasks" />
   </div>
@@ -35,35 +35,30 @@ export default {
       this.tasks = [...this.tasks, task]
     },
     deleteTask(id) {
-      if(confirm('Are you sure you want to delete task?')) {
+      if (confirm('Are you sure you want to delete task?')) {
         this.tasks = this.tasks.filter(task => task.id !== id)
       }
     },
     toggleReminder(id) {
-      this.tasks = this.tasks.map((task) => task.id === id ? {...task, reminder: !task.reminder} : task)
+      this.tasks = this.tasks.map((task) => task.id === id ? { ...task, reminder: !task.reminder } : task)
+    },
+    async fetchTasks() {
+      const res = await fetch('http://localhost:5000/tasks')
+
+      const data = await res.json()
+
+      return data
+    },
+    async fetchTask(id) {
+      const res = await fetch(`http://localhost:5000/tasks/${id}`)
+
+      const data = await res.json()
+
+      return data
     }
   },
-created() {
-    this.tasks = [
-      {
-        id: 1,
-        text: 'Doctor appointment',
-        day: 'Nov 21 at 8:30 am',
-        reminder: true,
-      },
-      {
-        id: 2,
-        text: 'Meeting at school',
-        day: 'Nov 22 at 1:30 pm',
-        reminder: true,
-      },
-      {
-        id: 3,
-        text: 'Food shopping',
-        day: 'Nov 23 at 2:30 pm',
-        reminder: false,
-      },
-    ]
+  async created() {
+    this.tasks = await this.fetchTasks()
   }
 }
 </script>
