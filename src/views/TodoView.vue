@@ -14,6 +14,8 @@ import TaskHeader from '@/components/Header.vue';
 import TaskList from '../components/TaskList.vue';
 import AddTask from '../components/AddTask.vue';
 
+const url = import.meta.env.VITE_API_URL;
+
 export default {
   name: 'Todo-app',
   components: {
@@ -43,14 +45,14 @@ export default {
       this.tasks = this.tasks.map((task) => task.id === id ? { ...task, reminder: !task.reminder } : task)
     },
     async fetchTasks() {
-      const res = await fetch('http://localhost:5000/tasks')
+      const res = await fetch(`${url}/tasks`)
 
       const data = await res.json()
 
       return data
     },
     async fetchTask(id) {
-      const res = await fetch(`http://localhost:5000/tasks/${id}`)
+      const res = await fetch(`${url}/tasks/${id}`)
 
       const data = await res.json()
 
