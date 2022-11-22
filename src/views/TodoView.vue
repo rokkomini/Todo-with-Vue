@@ -33,8 +33,16 @@ export default {
     toggleAddTask() {
       this.showAddTask = !this.showAddTask;
     },
-    addTask(task) {
-      this.tasks = [...this.tasks, task]
+    async addTask(task) {
+      const res = await fetch(`${url}/tasks`, {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json',
+        },
+        body: JSON.stringify(task),
+      })
+      const data = await res.json()
+      this.tasks = [...this.tasks, data]
     },
     deleteTask(id) {
       if (confirm('Are you sure you want to delete task?')) {
