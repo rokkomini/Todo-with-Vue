@@ -24,6 +24,7 @@ export default {
             text: '',
             day: '',
             reminder: false,
+            finished: false,
         }
     },
     methods: {
@@ -38,6 +39,7 @@ export default {
                 text: this.text,
                 day: this.day,
                 reminder: this.reminder,
+                finished: this.finished,
             }
 
             this.$emit('add-task', newTask);

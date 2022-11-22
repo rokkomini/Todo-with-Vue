@@ -4,25 +4,36 @@
       "id": 2,
       "text": "Meeting at school",
       "day": "Nov 22 at 1: 30 pm",
-      "reminder": true
+      "reminder": true,
+      "finished": false
     },
     {
       "id": 3,
       "text": "Food shopping",
       "day": "Nov 23 at 2: 30 pm",
-      "reminder": true
+      "reminder": true,
+      "finished": false
     },
     {
       "text": "Water plants",
       "day": "sunday 8pm",
       "reminder": false,
-      "id": 1065
+      "id": 1065,
+      "finished": false
     },
     {
       "text": "Play sims",
       "day": "today from 4:30 pm",
       "reminder": true,
-      "id": 1066
+      "id": 1066,
+      "finished": false
+    },
+    {
+      "text": "test",
+      "day": "today 9pm",
+      "reminder": false,
+      "finished": false,
+      "id": 1067
     }
   ]
 }
