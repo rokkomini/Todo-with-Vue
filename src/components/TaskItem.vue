@@ -6,7 +6,9 @@
         </h3>
         <div class="status">
             <p>{{ task.day }}</p>
+            <div v-show="task.finished === false">
             <font-awesome-icon @click="$emit('finish-task', task.id)" icon="check" color="green" />
+        </div>
         </div>
     </div>
 </template>
