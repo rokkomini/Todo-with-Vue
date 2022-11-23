@@ -39,15 +39,7 @@ export default {
       this.showAddTask = !this.showAddTask;
     },
     toggleShowTasks() {
-      /*   const taskStatus = this.tasks.finished;
-        this.taskStatus = taskStatus;
-        this.taskStatus = !this.tasks.finished */
-
-      this.tasks.finished = !this.tasks.finished;
       this.taskStatus = !this.taskStatus;
-
-
-      console.log(this.taskStatus);
     },
     async addTask(task) {
       const res = await fetch(`${url}/tasks`, {
