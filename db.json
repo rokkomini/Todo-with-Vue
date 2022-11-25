@@ -34,6 +34,13 @@
       "reminder": false,
       "finished": true,
       "id": 1067
+    },
+    {
+      "text": "danceparty",
+      "day": "friday 8pm",
+      "reminder": false,
+      "finished": false,
+      "id": 1068
     }
   ]
 }

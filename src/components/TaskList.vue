@@ -1,6 +1,6 @@
 <template>
 
-    <div v-for="task in showUnfinished(tasks)" :key="task.id">
+    <div v-for="task in showTasks(tasks)" :key="task.id">
         <TaskItem @toggle-reminder="$emit('toggle-reminder', task.id)" @delete-task="$emit('delete-task', task.id)"
             @finish-task="$emit('finish-task', task.id)" :task='task' />
     </div>
@@ -29,7 +29,7 @@ export default {
     },
     emits: ['delete-task', 'toggle-reminder', 'finish-task', 'toggle-show-tasks'],
     methods: {
-        showUnfinished(tasks) {
+        showTasks(tasks) {
             return tasks.filter(task => task.finished === this.taskStatus);
         }
     }
